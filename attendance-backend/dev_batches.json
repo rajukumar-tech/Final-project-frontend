@@ -1,28 +1,23 @@
 [
   {
-    "id": "28ced415-5e8c-436a-a23e-f31ec532d5ff",
-    "course_id": "7a27ffcc-6846-4183-9095-abd878a42239",
-    "name": "Batch A",
-    "start_date": "2025-12-10",
-    "end_date": "2026-03-10",
+    "id": "d0bc1802-a349-4adb-b95c-8ada40c52801",
+    "course_id": "6d93cf4e-94fc-4f2e-a0d3-b1929c21a146",
+    "name": "Test Batch",
+    "start_date": "2025-12-01",
+    "end_date": "2026-03-31",
     "is_active": true,
     "enrollments": [
       {
-        "id": "4a1f463e-a73e-430e-8b45-def9503fa414",
+        "id": "72eff534-4e7d-4af7-92a3-bc077ec71092",
         "student_id": "student-1",
-        "enrolledAt": "2025-12-03T05:46:15.696Z"
+        "enrolledAt": "2025-12-03T14:53:53.021Z"
       },
       {
-        "id": "19e5b01b-4e17-4325-8902-0efe9943faf5",
+        "id": "a6c7b20b-52fb-4262-92dd-85550222a66c",
         "student_id": "student-2",
-        "enrolledAt": "2025-12-03T05:46:15.702Z"
-      },
-      {
-        "id": "8d8698ff-d2c0-46de-b098-c757be213edd",
-        "student_id": "student-3",
-        "enrolledAt": "2025-12-03T05:46:15.702Z"
+        "enrolledAt": "2025-12-03T14:53:53.021Z"
       }
     ],
-    "createdAt": "2025-12-03T05:46:15.688Z"
+    "createdAt": "2025-12-03T14:53:53.018Z"
   }
 ]

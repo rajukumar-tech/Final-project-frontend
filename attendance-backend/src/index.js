@@ -20,6 +20,10 @@ const authRouter = require('./routes/auth');
 const usersRouter = require('./routes/users');
 const coursesRouter = require('./routes/courses');
 const batchesRouter = require('./routes/batches');
+const attendanceRouter = require('./routes/attendance');
+const batchInstructorsRouter = require('./routes/batch-instructors');
+const reportsRouter = require('./routes/reports');
+const adminRouter = require('./routes/admin');
 
 const app = express();
 app.use(express.json());
@@ -33,6 +37,10 @@ app.use('/api', usersRouter(db));
 app.use('/api/auth', authRouter(db));
 app.use('/api', coursesRouter(db));
 app.use('/api', batchesRouter(db));
+app.use('/api/attendance', attendanceRouter);
+app.use('/api/batches', batchInstructorsRouter);
+app.use('/api/reports', reportsRouter);
+app.use('/api/admin', adminRouter);
 
 // simple error handler
 app.use((err, req, res, next) => {

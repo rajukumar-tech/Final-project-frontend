@@ -7,57 +7,12 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
-// Provide a small file-backed fallback for development so endpoints work
-// even when Prisma client fails to initialize. The fallback stores users
-// in `dev_users.json` at the project root.
-function makeLocalUserStore() {
-  const file = path.join(__dirname, '../../dev_users.json');
-  let users = [];
-  try {
-    if (fs.existsSync(file)) users = JSON.parse(fs.readFileSync(file, 'utf8') || '[]');
-  } catch (e) {
-    users = [];
-  }
-  function save() {
-    try { fs.writeFileSync(file, JSON.stringify(users, null, 2)); } catch (e) {}
-  }
-
-  return {
-    user: {
-      findUnique: async ({ where }) => {
-        if (!where) return null;
-        if (where.email) return users.find(u => u.email === where.email) || null;
-        if (where.id) return users.find(u => u.id === where.id) || null;
-        return null;
-      },
-      create: async ({ data, select }) => {
-        const now = new Date().toISOString();
-        const newUser = {
-          id: crypto.randomUUID(),
-          email: data.email,
-          password: data.password,
-          name: data.name ?? null,
-          role: data.role ?? 'user',
-          createdAt: now,
-          updatedAt: now,
-        };
-        users.push(newUser);
-        save();
-
-        if (select) {
-          const out = {};
-          Object.keys(select).forEach(k => { if (select[k]) out[k] = newUser[k]; });
-          return out;
-        }
-        return newUser;
-      }
-    }
-  };
-}
+// Use the real Prisma client passed from the app. Previously we used a
+// fallback adapter for local testing; moving to real DB-backed Prisma now.
 
 function authRouter(prisma) {
   const router = express.Router();
-  const db = prisma || makeLocalUserStore();
+  const db = prisma;
 
   // helper: sign token
   const signToken = (user) => {

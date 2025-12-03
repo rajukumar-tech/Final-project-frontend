@@ -7,5 +7,14 @@
     "role": "user",
     "createdAt": "2025-12-01T09:25:02.018Z",
     "updatedAt": "2025-12-01T09:25:02.018Z"
+  },
+  {
+    "id": "48da22e0-40cb-451a-baec-a6d563ecb1c3",
+    "email": "inproc@example.com",
+    "password": "$2a$10$7O9V8XJRUt4VcDywlyi63eKE/WIjf/d1/rxBne7wpI6q0IBP1GQAK",
+    "name": "InProcUpdated",
+    "role": "user",
+    "createdAt": "2025-12-02T15:38:04.421Z",
+    "updatedAt": "2025-12-02T15:53:31.974Z"
   }
 ]

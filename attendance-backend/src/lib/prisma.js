@@ -5,20 +5,14 @@ const { PrismaClient } = require('@prisma/client');
 
 let prisma;
 
-const clientOptions = {};
-
-// Prisma v7 requires passing a runtime datasource adapter or accelerateUrl
-// when the schema's datasource URL is supplied via `prisma.config.js` / env.
-if (process.env.DATABASE_URL) {
-  clientOptions.adapter = { provider: 'sqlite', url: process.env.DATABASE_URL };
-}
-
+// Instantiate PrismaClient without runtime constructor options so that
+// the client uses the environment-configured datasource at runtime.
 if (process.env.NODE_ENV === 'production') {
-  prisma = new PrismaClient(clientOptions);
+  prisma = new PrismaClient();
 } else {
   // Prevent multiple instances in development (hot reload)
   if (!global.prisma) {
-    global.prisma = new PrismaClient(clientOptions);
+    global.prisma = new PrismaClient();
   }
   prisma = global.prisma;
 }

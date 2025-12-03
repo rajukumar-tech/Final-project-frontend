@@ -1,23 +1,33 @@
 [
   {
-    "id": "d0bc1802-a349-4adb-b95c-8ada40c52801",
-    "course_id": "6d93cf4e-94fc-4f2e-a0d3-b1929c21a146",
-    "name": "Test Batch",
+    "id": "dd10c48e-3aa5-4de0-90cd-a23df7361c34",
+    "course_id": "9c808989-ecca-4375-bf4e-a6f353359153",
+    "name": "Full Stack Batch 1",
     "start_date": "2025-12-01",
     "end_date": "2026-03-31",
     "is_active": true,
     "enrollments": [
       {
-        "id": "72eff534-4e7d-4af7-92a3-bc077ec71092",
+        "id": "8b58763b-81fd-4790-84a7-bbf76c57f6f4",
         "student_id": "student-1",
-        "enrolledAt": "2025-12-03T14:53:53.021Z"
+        "enrolledAt": "2025-12-03T14:57:31.010Z"
       },
       {
-        "id": "a6c7b20b-52fb-4262-92dd-85550222a66c",
+        "id": "75724a78-eaa6-4bc4-98f9-2aca82d75ecc",
         "student_id": "student-2",
-        "enrolledAt": "2025-12-03T14:53:53.021Z"
+        "enrolledAt": "2025-12-03T14:57:31.012Z"
+      },
+      {
+        "id": "1a14397a-b84d-4466-941c-448e91b8ac5d",
+        "student_id": "student-3",
+        "enrolledAt": "2025-12-03T14:57:31.012Z"
+      },
+      {
+        "id": "38b36d16-c9b9-4783-8ae3-96179a167b6d",
+        "student_id": "student-4",
+        "enrolledAt": "2025-12-03T14:57:31.012Z"
       }
     ],
-    "createdAt": "2025-12-03T14:53:53.018Z"
+    "createdAt": "2025-12-03T14:57:31.006Z"
   }
 ]

@@ -1,9 +1,9 @@
 [
   {
-    "id": "6d93cf4e-94fc-4f2e-a0d3-b1929c21a146",
-    "code": "CS301",
-    "title": "Test Course",
-    "description": "Test",
-    "createdAt": "2025-12-03T14:53:53.012Z"
+    "id": "9c808989-ecca-4375-bf4e-a6f353359153",
+    "code": "FULLSTACK",
+    "title": "Full Stack Development",
+    "description": "Complete course",
+    "createdAt": "2025-12-03T14:57:31.002Z"
   }
 ]

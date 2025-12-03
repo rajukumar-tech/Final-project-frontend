@@ -18,6 +18,8 @@ try {
 const db = createSafeDb(prisma);
 const authRouter = require('./routes/auth');
 const usersRouter = require('./routes/users');
+const coursesRouter = require('./routes/courses');
+const batchesRouter = require('./routes/batches');
 
 const app = express();
 app.use(express.json());
@@ -29,6 +31,8 @@ app.get('/', (req, res) => res.json({ ok: true, msg: 'backend running' }));
 // mount users and auth (inject db — which wraps prisma and provides fallback)
 app.use('/api', usersRouter(db));
 app.use('/api/auth', authRouter(db));
+app.use('/api', coursesRouter(db));
+app.use('/api', batchesRouter(db));
 
 // simple error handler
 app.use((err, req, res, next) => {

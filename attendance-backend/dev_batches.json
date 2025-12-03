@@ -1,0 +1,28 @@
+[
+  {
+    "id": "28ced415-5e8c-436a-a23e-f31ec532d5ff",
+    "course_id": "7a27ffcc-6846-4183-9095-abd878a42239",
+    "name": "Batch A",
+    "start_date": "2025-12-10",
+    "end_date": "2026-03-10",
+    "is_active": true,
+    "enrollments": [
+      {
+        "id": "4a1f463e-a73e-430e-8b45-def9503fa414",
+        "student_id": "student-1",
+        "enrolledAt": "2025-12-03T05:46:15.696Z"
+      },
+      {
+        "id": "19e5b01b-4e17-4325-8902-0efe9943faf5",
+        "student_id": "student-2",
+        "enrolledAt": "2025-12-03T05:46:15.702Z"
+      },
+      {
+        "id": "8d8698ff-d2c0-46de-b098-c757be213edd",
+        "student_id": "student-3",
+        "enrolledAt": "2025-12-03T05:46:15.702Z"
+      }
+    ],
+    "createdAt": "2025-12-03T05:46:15.688Z"
+  }
+]

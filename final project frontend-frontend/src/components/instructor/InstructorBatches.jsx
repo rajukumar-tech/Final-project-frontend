@@ -12,10 +12,10 @@ export function InstructorBatches({ onNavigate, onLogout }) {
   return (
     <div className="flex">
       <Sidebar role="instructor" currentPage="batches" onNavigate={onNavigate} />
-      
+
       <div className="flex-1 flex flex-col min-h-screen">
-        <Navbar onLogout={onLogout} userName="Dr. Emily Smith" />
-        
+        <Navbar onLogout={onLogout} onNavigate={onNavigate} userName="Dr. Emily Smith" />
+
         <div className="flex-1 p-8">
           <div className="mb-8">
             <h1 className="text-gray-900 text-3xl mb-2">My Batches</h1>
@@ -60,50 +60,21 @@ export function InstructorBatches({ onNavigate, onLogout }) {
                 </div>
 
                 <div className="grid grid-cols-2 gap-2">
-                  <button className="px-4 py-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 text-sm font-medium">
+                  <button
+                    onClick={() => alert(`Viewing details for ${batch.name} - Feature coming soon!`)}
+                    className="px-4 py-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 text-sm font-medium"
+                  >
                     Details
                   </button>
-                  <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 text-sm font-medium">
+                  <button
+                    onClick={() => alert(`Settings for ${batch.name} - Feature coming soon!`)}
+                    className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 text-sm font-medium"
+                  >
                     Settings
                   </button>
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-                  <div className="flex items-center gap-3 text-gray-700">
-                    <Calendar className="w-4 h-4 text-purple-600" />
-                    {batch.nextClass}</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-gray-700">
-                    <BookOpen className="w-4 h-4 text-orange-600" />
-                    {batch.room}</span>
-                  </div>
-                </div>
-
-                {/* Attendance */}
-                <div className="mb-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-gray-700">Average Attendance{batch.attendance}%</span>
-                  </div>
-                  <div className="bg-gray-200 rounded-full h-2">
-                    <div
-                      className={`h-2 rounded-full ${
-                        batch.attendance >= 85 ? 'bg-green-500' = 75 ? 'bg-orange-500' : 'bg-red-500'
-                      }`}
-                      style={{ width: `${batch.attendance}%` }}
-                    ></div>
-                  </div>
-                </div>
-
-                {/* Actions */}
-                <div className="flex gap-2 pt-4 border-t border-gray-200">
-                  <button className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover)}
-                    className="flex-1 px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover))}
           </div>
         </div>
       </div>

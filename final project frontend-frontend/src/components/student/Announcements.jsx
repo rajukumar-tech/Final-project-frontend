@@ -75,17 +75,17 @@ export function Announcements({ onNavigate, onLogout }) {
     },
   ];
 
-  const filteredAnnouncements = filter === 'all' 
-    ? announcements 
+  const filteredAnnouncements = filter === 'all'
+    ? announcements
     : announcements.filter(a => a.status === filter);
 
   return (
     <div className="flex">
       <Sidebar role="student" currentPage="announcements" onNavigate={onNavigate} />
-      
+
       <div className="flex-1 flex flex-col min-h-screen">
-        <Navbar onLogout={onLogout} userName="Sarah Johnson" />
-        
+        <Navbar onLogout={onLogout} onNavigate={onNavigate} userName="Sarah Johnson" />
+
         <div className="flex-1 p-8">
           <div className="flex items-center justify-between mb-8">
             <div>
@@ -95,31 +95,28 @@ export function Announcements({ onNavigate, onLogout }) {
             <div className="flex gap-3">
               <button
                 onClick={() => setFilter('all')}
-                className={`px-4 py-2 rounded-lg transition ${
-                  filter === 'all'
+                className={`px-4 py-2 rounded-lg transition ${filter === 'all'
                     ? 'bg-blue-600 text-white'
                     : 'border border-gray-300 text-gray-700 hover:bg-gray-50'
-                }`}
+                  }`}
               >
                 All
               </button>
               <button
                 onClick={() => setFilter('new')}
-                className={`px-4 py-2 rounded-lg transition ${
-                  filter === 'new'
+                className={`px-4 py-2 rounded-lg transition ${filter === 'new'
                     ? 'bg-blue-600 text-white'
                     : 'border border-gray-300 text-gray-700 hover:bg-gray-50'
-                }`}
+                  }`}
               >
                 New
               </button>
               <button
                 onClick={() => setFilter('read')}
-                className={`px-4 py-2 rounded-lg transition ${
-                  filter === 'read'
+                className={`px-4 py-2 rounded-lg transition ${filter === 'read'
                     ? 'bg-blue-600 text-white'
                     : 'border border-gray-300 text-gray-700 hover:bg-gray-50'
-                }`}
+                  }`}
               >
                 Read
               </button>
@@ -130,20 +127,17 @@ export function Announcements({ onNavigate, onLogout }) {
             {filteredAnnouncements.map((announcement) => (
               <div
                 key={announcement.id}
-                className={`bg-white rounded-lg p-6 shadow hover:shadow-md transition border ${
-                  announcement.status === 'new'
+                className={`bg-white rounded-lg p-6 shadow hover:shadow-md transition border ${announcement.status === 'new'
                     ? 'border-blue-300 bg-blue-50'
                     : 'border-gray-200'
-                }`}
+                  }`}
               >
                 <div className="flex items-start justify-between">
                   <div className="flex items-start gap-4 flex-1">
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                      announcement.status === 'new' ? 'bg-blue-100' : 'bg-gray-100'
-                    }`}>
-                      <Bell className={`w-6 h-6 ${
-                        announcement.status === 'new' ? 'text-blue-600' : 'text-gray-600'
-                      }`} />
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center ${announcement.status === 'new' ? 'bg-blue-100' : 'bg-gray-100'
+                      }`}>
+                      <Bell className={`w-6 h-6 ${announcement.status === 'new' ? 'text-blue-600' : 'text-gray-600'
+                        }`} />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
@@ -185,8 +179,8 @@ export function Announcements({ onNavigate, onLogout }) {
               <Bell className="w-16 h-16 text-gray-300 mx-auto mb-4" />
               <h3 className="text-gray-900 font-semibold mb-2">No announcements found</h3>
               <p className="text-gray-600">
-                {filter === 'new' 
-                  ? 'You have no new announcements at the moment.' 
+                {filter === 'new'
+                  ? 'You have no new announcements at the moment.'
                   : 'You have no read announcements.'}
               </p>
             </div>

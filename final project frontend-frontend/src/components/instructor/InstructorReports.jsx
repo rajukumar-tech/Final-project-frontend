@@ -25,10 +25,10 @@ export function InstructorReports({ onNavigate, onLogout }) {
   return (
     <div className="flex">
       <Sidebar role="instructor" currentPage="reports" onNavigate={onNavigate} />
-      
+
       <div className="flex-1 flex flex-col min-h-screen">
-        <Navbar onLogout={onLogout} userName="Dr. Emily Smith" />
-        
+        <Navbar onLogout={onLogout} onNavigate={onNavigate} userName="Dr. Emily Smith" />
+
         <div className="flex-1 p-8">
           <div className="flex items-center justify-between mb-8">
             <div>
@@ -136,13 +136,12 @@ export function InstructorReports({ onNavigate, onLogout }) {
                         <div className="flex items-center gap-3">
                           <div className="bg-gray-200 rounded-full h-2 w-24">
                             <div
-                              className={`h-2 rounded-full ${
-                                student.attendance >= 85
-                                  ? 'bg-green-500'
-                                  : student.attendance >= 75
+                              className={`h-2 rounded-full ${student.attendance >= 85
+                                ? 'bg-green-500'
+                                : student.attendance >= 75
                                   ? 'bg-orange-500'
                                   : 'bg-red-500'
-                              }`}
+                                }`}
                               style={{ width: `${student.attendance}%` }}
                             ></div>
                           </div>
@@ -150,13 +149,12 @@ export function InstructorReports({ onNavigate, onLogout }) {
                         </div>
                       </td>
                       <td className="px-6 py-3">
-                        <span className={`px-3 py-1 rounded-full text-sm font-semibold ${
-                          student.status === 'Excellent'
-                            ? 'bg-green-100 text-green-700'
-                            : student.status === 'At Risk'
+                        <span className={`px-3 py-1 rounded-full text-sm font-semibold ${student.status === 'Excellent'
+                          ? 'bg-green-100 text-green-700'
+                          : student.status === 'At Risk'
                             ? 'bg-red-100 text-red-700'
                             : 'bg-blue-100 text-blue-700'
-                        }`}>
+                          }`}>
                           {student.status}
                         </span>
                       </td>
@@ -164,86 +162,6 @@ export function InstructorReports({ onNavigate, onLogout }) {
                   ))}
                 </tbody>
               </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-              <div className="text-gray-600 mb-2">Overall Attendance88.7%</h2>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-              <div className="text-gray-600 mb-2">Sessions Conducted45</h2>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-              <div className="text-gray-600 mb-2">Total Students125</h2>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-              <div className="text-gray-600 mb-2">At Risk Students2</h2>
-            </div>
-          </div>
-
-          {/* Charts */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-            {/* Attendance Over Time */}
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-              <h2 className="text-gray-900 mb-4">Attendance Over Time
-                <LineChart data={attendanceOverTime}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                  <XAxis dataKey="date" stroke="#6b7280" />
-                  <YAxis stroke="#6b7280" />
-                  <Tooltip />
-                  <Legend />
-                  <Line type="monotone" dataKey="cs101a" stroke="#3b82f6" strokeWidth={2} name="CS101-A" />
-                  <Line type="monotone" dataKey="cs101b" stroke="#8b5cf6" strokeWidth={2} name="CS101-B" />
-                  <Line type="monotone" dataKey="cs201a" stroke="#10b981" strokeWidth={2} name="CS201-A" />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
-
-            {/* Student Performance */}
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-              <h2 className="text-gray-900 mb-4">Student Performance (CS101-A)</h2>
-              <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={studentPerformance}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                  <XAxis dataKey="name" stroke="#6b7280" angle={-45} textAnchor="end" height={100} />
-                  <YAxis stroke="#6b7280" />
-                  <Tooltip />
-                  <Bar dataKey="attendance" fill="#3b82f6" name="Attendance %" />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-          </div>
-
-          {/* Download Reports */}
-          <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-            <h2 className="text-gray-900 mb-4">Download Reports
-              <button className="w-full flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition">
-                <div className="flex items-center gap-3">
-                  <FileText className="w-5 h-5 text-blue-600" />
-                  <div className="text-left">
-                    <div className="text-gray-900">Weekly Attendance SummaryComplete attendance data for this week
-                </div>
-                <Download className="w-5 h-5 text-gray-400" />
-              </button>
-              <button className="w-full flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition">
-                <div className="flex items-center gap-3">
-                  <FileText className="w-5 h-5 text-green-600" />
-                  <div className="text-left">
-                    <div className="text-gray-900">Student-wise ReportIndividual student attendance breakdown
-                </div>
-                <Download className="w-5 h-5 text-gray-400" />
-              </button>
-              <button className="w-full flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition">
-                <div className="flex items-center gap-3">
-                  <FileText className="w-5 h-5 text-purple-600" />
-                  <div className="text-left">
-                    <div className="text-gray-900">Batch Comparison ReportCompare performance across all batches
-                </div>
-                <Download className="w-5 h-5 text-gray-400" />
-              </button>
             </div>
           </div>
         </div>

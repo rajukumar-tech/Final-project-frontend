@@ -1,33 +1,127 @@
 [
   {
-    "id": "dd10c48e-3aa5-4de0-90cd-a23df7361c34",
-    "course_id": "9c808989-ecca-4375-bf4e-a6f353359153",
+    "id": "batch-001",
+    "course_id": "course-001",
+    "name": "CS101 - Morning Batch A",
+    "start_date": "2025-01-01",
+    "end_date": "2025-06-30",
+    "is_active": true,
+    "enrollments": [
+      {
+        "id": "enroll-001",
+        "student_id": "student-001",
+        "enrolledAt": "2025-12-05T06:30:48.315Z"
+      },
+      {
+        "id": "enroll-002",
+        "student_id": "student-002",
+        "enrolledAt": "2025-12-05T06:30:48.315Z"
+      },
+      {
+        "id": "enroll-003",
+        "student_id": "student-003",
+        "enrolledAt": "2025-12-05T06:30:48.315Z"
+      }
+    ],
+    "createdAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "batch-002",
+    "course_id": "course-001",
+    "name": "CS101 - Afternoon Batch B",
+    "start_date": "2025-01-01",
+    "end_date": "2025-06-30",
+    "is_active": true,
+    "enrollments": [
+      {
+        "id": "enroll-004",
+        "student_id": "student-004",
+        "enrolledAt": "2025-12-05T06:30:48.315Z"
+      },
+      {
+        "id": "enroll-005",
+        "student_id": "student-005",
+        "enrolledAt": "2025-12-05T06:30:48.315Z"
+      }
+    ],
+    "createdAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "batch-003",
+    "course_id": "course-002",
+    "name": "DSA - Weekend Batch",
+    "start_date": "2025-02-01",
+    "end_date": "2025-07-31",
+    "is_active": true,
+    "enrollments": [
+      {
+        "id": "enroll-006",
+        "student_id": "student-001",
+        "enrolledAt": "2025-12-05T06:30:48.315Z"
+      },
+      {
+        "id": "enroll-007",
+        "student_id": "student-002",
+        "enrolledAt": "2025-12-05T06:30:48.315Z"
+      },
+      {
+        "id": "enroll-008",
+        "student_id": "student-004",
+        "enrolledAt": "2025-12-05T06:30:48.315Z"
+      }
+    ],
+    "createdAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "batch-004",
+    "course_id": "course-003",
+    "name": "Web Dev - Evening Batch",
+    "start_date": "2025-03-01",
+    "end_date": "2025-08-31",
+    "is_active": true,
+    "enrollments": [
+      {
+        "id": "enroll-009",
+        "student_id": "student-003",
+        "enrolledAt": "2025-12-05T06:30:48.315Z"
+      },
+      {
+        "id": "enroll-010",
+        "student_id": "student-005",
+        "enrolledAt": "2025-12-05T06:30:48.315Z"
+      }
+    ],
+    "createdAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "2af645db-bbd6-4f3e-9b35-9eff5f697f5f",
+    "course_id": "bb219016-2fea-4226-8a5f-2b79e0d1a888",
     "name": "Full Stack Batch 1",
     "start_date": "2025-12-01",
     "end_date": "2026-03-31",
     "is_active": true,
     "enrollments": [
       {
-        "id": "8b58763b-81fd-4790-84a7-bbf76c57f6f4",
+        "id": "fd379f42-6d21-4312-b7fa-0452fd0dceee",
         "student_id": "student-1",
-        "enrolledAt": "2025-12-03T14:57:31.010Z"
+        "enrolledAt": "2025-12-05T06:43:53.791Z"
       },
       {
-        "id": "75724a78-eaa6-4bc4-98f9-2aca82d75ecc",
+        "id": "bc114a2d-86f2-4176-a5d5-2ebbcaf71537",
         "student_id": "student-2",
-        "enrolledAt": "2025-12-03T14:57:31.012Z"
+        "enrolledAt": "2025-12-05T06:43:53.794Z"
       },
       {
-        "id": "1a14397a-b84d-4466-941c-448e91b8ac5d",
+        "id": "ff854954-fb70-4b63-8bf6-3b191c316c24",
         "student_id": "student-3",
-        "enrolledAt": "2025-12-03T14:57:31.012Z"
+        "enrolledAt": "2025-12-05T06:43:53.794Z"
       },
       {
-        "id": "38b36d16-c9b9-4783-8ae3-96179a167b6d",
+        "id": "e3696733-09fd-4c77-af58-7254c43993aa",
         "student_id": "student-4",
-        "enrolledAt": "2025-12-03T14:57:31.012Z"
+        "enrolledAt": "2025-12-05T06:43:53.794Z"
       }
     ],
-    "createdAt": "2025-12-03T14:57:31.006Z"
+    "createdAt": "2025-12-05T06:43:53.787Z"
   }
 ]

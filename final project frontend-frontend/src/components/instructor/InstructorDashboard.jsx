@@ -28,10 +28,10 @@ export function InstructorDashboard({ onNavigate, onLogout }) {
   return (
     <div className="flex">
       <Sidebar role="instructor" currentPage="dashboard" onNavigate={onNavigate} />
-      
+
       <div className="flex-1 flex flex-col min-h-screen">
-        <Navbar onLogout={onLogout} userName="Dr. Emily Smith" />
-        
+        <Navbar onLogout={onLogout} onNavigate={onNavigate} userName="Dr. Emily Smith" />
+
         <div className="flex-1 p-8">
           <div className="mb-8">
             <h1 className="text-gray-900 text-3xl mb-2">Instructor Dashboard</h1>
@@ -96,11 +96,10 @@ export function InstructorDashboard({ onNavigate, onLogout }) {
                         </div>
                       </div>
                       <span
-                        className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ml-2 ${
-                          session.status === 'Completed'
+                        className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ml-2 ${session.status === 'Completed'
                             ? 'bg-green-100 text-green-700'
                             : 'bg-blue-100 text-blue-700'
-                        }`}
+                          }`}
                       >
                         {session.status}
                       </span>

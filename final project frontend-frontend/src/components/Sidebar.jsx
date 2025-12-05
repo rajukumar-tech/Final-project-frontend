@@ -1,13 +1,11 @@
 import { GraduationCap, LayoutDashboard, Users, BookOpen, BarChart3, Settings, ClipboardList, FileText, Bell } from 'lucide-react';
 
-// // }
-
 export function Sidebar({ role, currentPage, onNavigate }) {
   const adminNav = [
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
     { id: 'students', label: 'Students', icon: Users },
     { id: 'instructors', label: 'Instructors', icon: GraduationCap },
-    { id: 'courses', label: 'Courses', icon: BookOpen },
+    { id: 'batches', label: 'Batches', icon: BookOpen },
     { id: 'reports', label: 'Reports', icon: BarChart3 },
     { id: 'settings', label: 'Settings', icon: Settings },
   ];
@@ -29,6 +27,12 @@ export function Sidebar({ role, currentPage, onNavigate }) {
 
   const navItems = role === 'admin' ? adminNav : role === 'instructor' ? instructorNav : studentNav;
 
+  const getRoleLabel = (role) => {
+    if (role === 'admin') return 'Admin Portal';
+    if (role === 'instructor') return 'Instructor Portal';
+    return 'Student Portal';
+  };
+
   return (
     <div className="w-64 bg-white border-r border-gray-200 flex flex-col h-screen sticky top-0">
       {/* Logo */}
@@ -37,8 +41,9 @@ export function Sidebar({ role, currentPage, onNavigate }) {
           <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
             <GraduationCap className="w-6 h-6 text-white" />
           </div>
-          
-            <div className="text-gray-900">AttendanceHub{role}</div>
+          <div>
+            <div className="text-gray-900 font-semibold">AttendanceHub</div>
+            <div className="text-gray-500 text-sm">{getRoleLabel(role)}</div>
           </div>
         </div>
       </div>
@@ -53,14 +58,13 @@ export function Sidebar({ role, currentPage, onNavigate }) {
               <li key={item.id}>
                 <button
                   onClick={() => onNavigate(item.id)}
-                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition ${
-                    isActive
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition ${isActive
                       ? 'bg-blue-50 text-blue-600'
                       : 'text-gray-700 hover:bg-gray-50'
-                  }`}
+                    }`}
                 >
                   <Icon className="w-5 h-5" />
-                  {item.label}</span>
+                  <span>{item.label}</span>
                 </button>
               </li>
             );

@@ -25,10 +25,10 @@ export function AdminReports({ onNavigate, onLogout }) {
   return (
     <div className="flex">
       <Sidebar role="admin" currentPage="reports" onNavigate={onNavigate} />
-      
+
       <div className="flex-1 flex flex-col min-h-screen">
-        <Navbar onLogout={onLogout} userName="Admin User" />
-        
+        <Navbar onLogout={onLogout} onNavigate={onNavigate} userName="Admin User" />
+
         <div className="flex-1 p-8">
           <div className="flex items-center justify-between mb-8">
             <div>
@@ -161,135 +161,6 @@ export function AdminReports({ onNavigate, onLogout }) {
                   ))}
                 </tbody>
               </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-                </div>
-                <span className="text-gray-600">Avg Attendance
-              <h2 className="text-gray-900">89.5%</h2>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                  <FileText className="w-5 h-5 text-green-600" />
-                </div>
-                <span className="text-gray-600">Total Sessions
-              <h2 className="text-gray-900">1,248</h2>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                  <TrendingUp className="w-5 h-5 text-purple-600" />
-                </div>
-                <span className="text-gray-600">Top Batch
-              <h2 className="text-gray-900">CS101-A
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
-                  <TrendingUp className="w-5 h-5 text-orange-600" />
-                </div>
-                <span className="text-gray-600">At Risk
-              <h2 className="text-gray-900">24</h2>
-            </div>
-          </div>
-
-          {/* Charts Row 1 */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-            {/* Attendance Trend */}
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-              <h2 className="text-gray-900 mb-4">Attendance Trends
-                <LineChart data={attendanceTrendData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                  <XAxis dataKey="month" stroke="#6b7280" />
-                  <YAxis stroke="#6b7280" />
-                  <Tooltip />
-                  <Legend />
-                  <Line type="monotone" dataKey="attendance" stroke="#3b82f6" strokeWidth={2} name="Attendance %" />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
-
-            {/* Course Distribution */}
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-              <h2 className="text-gray-900 mb-4">Course-wise Distribution
-                <BarChart data={courseDistributionData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                  <XAxis dataKey="course" stroke="#6b7280" />
-                  <YAxis stroke="#6b7280" />
-                  <Tooltip />
-                  <Legend />
-                  <Bar dataKey="students" fill="#3b82f6" name="Students" />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-          </div>
-
-          {/* Charts Row 2 */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Absentee Reasons */}
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-              <h2 className="text-gray-900 mb-4">Absentee Reasons
-                
-                  <Pie
-                    data={absenteeReasonsData}
-                    cx="50%"
-                    cy="50%"
-                    labelLine={false}
-                    label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-                    outerRadius={80}
-                    fill="#8884d8"
-                    dataKey="value"
-                  >
-                    {absenteeReasonsData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Pie>
-                  <Tooltip />
-                </PieChart>
-              </ResponsiveContainer>
-            </div>
-
-            {/* Download Center */}
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 lg:col-span-2">
-              <h2 className="text-gray-900 mb-4">Download Reports
-                <button className="w-full flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition">
-                  <div className="flex items-center gap-3">
-                    <FileText className="w-5 h-5 text-blue-600" />
-                    <div className="text-left">
-                      <div className="text-gray-900">Monthly Attendance ReportComplete attendance data for August 2024</div>
-                    </div>
-                  </div>
-                  <Download className="w-5 h-5 text-gray-400" />
-                </button>
-                <button className="w-full flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition">
-                  <div className="flex items-center gap-3">
-                    <FileText className="w-5 h-5 text-green-600" />
-                    <div className="text-left">
-                      <div className="text-gray-900">Student Performance ReportIndividual student attendance metrics
-                  </div>
-                  <Download className="w-5 h-5 text-gray-400" />
-                </button>
-                <button className="w-full flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition">
-                  <div className="flex items-center gap-3">
-                    <FileText className="w-5 h-5 text-purple-600" />
-                    <div className="text-left">
-                      <div className="text-gray-900">Batch Analytics ReportComparative analysis across all batches
-                  </div>
-                  <Download className="w-5 h-5 text-gray-400" />
-                </button>
-                <button className="w-full flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition">
-                  <div className="flex items-center gap-3">
-                    <FileText className="w-5 h-5 text-orange-600" />
-                    <div className="text-left">
-                      <div className="text-gray-900">Instructor Performance ReportTeaching effectiveness and session completion
-                  </div>
-                  <Download className="w-5 h-5 text-gray-400" />
-                </button>
-              </div>
             </div>
           </div>
         </div>

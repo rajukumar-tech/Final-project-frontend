@@ -2,6 +2,7 @@
 require('dotenv').config();
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 // Load Prisma if available. If Prisma fails to initialize (Prisma v7 runtime adapter issue),
 // we use the createSafeDb wrapper to provide a fallback local store so routes still work.
@@ -26,6 +27,13 @@ const reportsRouter = require('./routes/reports');
 const adminRouter = require('./routes/admin');
 
 const app = express();
+
+// CORS configuration - allow frontend to make requests
+app.use(cors({
+  origin: 'http://localhost:5173', // Vite dev server
+  credentials: true, // Allow cookies/authorization headers
+}));
+
 app.use(express.json());
 app.use(cookieParser());
 

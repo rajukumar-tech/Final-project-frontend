@@ -1,12 +1,9 @@
 // src/lib/prisma.js
-// Force Prisma to use the binary engine to avoid requiring a runtime driver adapter.
-process.env.PRISMA_CLIENT_ENGINE_TYPE = process.env.PRISMA_CLIENT_ENGINE_TYPE || 'binary';
 const { PrismaClient } = require('@prisma/client');
 
 let prisma;
 
-// Instantiate PrismaClient without runtime constructor options so that
-// the client uses the environment-configured datasource at runtime.
+// Create a single instance of PrismaClient
 if (process.env.NODE_ENV === 'production') {
   prisma = new PrismaClient();
 } else {

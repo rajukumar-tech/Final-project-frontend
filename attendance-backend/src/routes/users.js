@@ -22,7 +22,7 @@ function readUsers() {
 
 function writeUsers(users) {
   const file = fileUsersPath();
-  try { fs.writeFileSync(file, JSON.stringify(users, null, 2)); } catch (e) {}
+  try { fs.writeFileSync(file, JSON.stringify(users, null, 2)); } catch (e) { }
 }
 
 function usersRouter(prisma) {
@@ -42,6 +42,34 @@ function usersRouter(prisma) {
       return res.status(401).json({ error: 'Invalid token' });
     }
   };
+
+  // GET /api/users - list all users (admin only), optional ?role= filter
+  router.get('/users', requireAuth, async (req, res, next) => {
+    try {
+      if (req.user.role !== 'admin') {
+        return res.status(403).json({ error: 'Forbidden: admin only' });
+      }
+
+      const { role } = req.query;
+      let users = readUsers();
+
+      // Filter by role if specified
+      if (role) {
+        users = users.filter(u => u.role === role);
+      }
+
+      // Return safe user data (without passwords)
+      const safeUsers = users.map(u => ({
+        id: u.id,
+        email: u.email,
+        name: u.name,
+        role: u.role,
+        createdAt: u.createdAt
+      }));
+
+      return res.json({ users: safeUsers });
+    } catch (err) { next(err); }
+  });
 
   // GET /api/users/me
   router.get('/users/me', requireAuth, async (req, res, next) => {

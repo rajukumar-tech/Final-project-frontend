@@ -31,7 +31,7 @@ export function AdminDashboard({ onNavigate, onLogout }) {
     <div className="flex">
       <Sidebar role="admin" currentPage="dashboard" onNavigate={onNavigate} />
       <div className="flex-1 flex flex-col min-h-screen">
-        <Navbar onLogout={onLogout} userName="Admin User" />
+        <Navbar onLogout={onLogout} onNavigate={onNavigate} userName="Admin User" />
         <div className="flex-1 p-8">
           <h1 className="text-gray-900 text-3xl mb-8">Welcome back Admin</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">

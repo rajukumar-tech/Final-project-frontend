@@ -1,9 +1,37 @@
 [
   {
-    "id": "9c808989-ecca-4375-bf4e-a6f353359153",
+    "id": "course-001",
+    "code": "CS101",
+    "title": "Introduction to Computer Science",
+    "description": "Fundamentals of programming and computer science concepts",
+    "createdAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "course-002",
+    "code": "CS201",
+    "title": "Data Structures and Algorithms",
+    "description": "Advanced programming concepts including data structures",
+    "createdAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "course-003",
+    "code": "CS301",
+    "title": "Web Development",
+    "description": "Full stack web development with modern technologies",
+    "createdAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "course-004",
+    "code": "MATH101",
+    "title": "Calculus I",
+    "description": "Introduction to differential and integral calculus",
+    "createdAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "bb219016-2fea-4226-8a5f-2b79e0d1a888",
     "code": "FULLSTACK",
     "title": "Full Stack Development",
     "description": "Complete course",
-    "createdAt": "2025-12-03T14:57:31.002Z"
+    "createdAt": "2025-12-05T06:43:53.784Z"
   }
 ]

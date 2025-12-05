@@ -22,10 +22,10 @@ export function AdminInstructors({ onNavigate, onLogout }) {
   return (
     <div className="flex">
       <Sidebar role="admin" currentPage="instructors" onNavigate={onNavigate} />
-      
+
       <div className="flex-1 flex flex-col min-h-screen">
-        <Navbar onLogout={onLogout} userName="Admin User" />
-        
+        <Navbar onLogout={onLogout} onNavigate={onNavigate} userName="Admin User" />
+
         <div className="flex-1 p-8">
           <div className="flex items-center justify-between mb-8">
             <div>
@@ -85,11 +85,10 @@ export function AdminInstructors({ onNavigate, onLogout }) {
                     <td className="px-6 py-3 text-gray-700">{instructor.batches}</td>
                     <td className="px-6 py-3 text-gray-700">{instructor.sessions}</td>
                     <td className="px-6 py-3">
-                      <span className={`px-3 py-1 rounded-full text-sm ${
-                        instructor.status === 'Active'
+                      <span className={`px-3 py-1 rounded-full text-sm ${instructor.status === 'Active'
                           ? 'bg-green-100 text-green-700'
                           : 'bg-gray-100 text-gray-700'
-                      }`}>
+                        }`}>
                         {instructor.status}
                       </span>
                     </td>

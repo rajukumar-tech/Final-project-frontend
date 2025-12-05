@@ -13,6 +13,8 @@ import { StudentDashboard } from './components/student/StudentDashboard';
 import { MyAttendance } from './components/student/MyAttendance';
 import { MyCourses } from './components/student/MyCourses';
 import { Announcements } from './components/student/Announcements';
+import { Settings } from './components/Settings';
+import { Profile } from './components/Profile';
 import { isAuthenticated, getCurrentUser, clearAuth } from './services/auth';
 
 export default function App() {
@@ -54,6 +56,24 @@ export default function App() {
 
   if (!isLoggedIn) {
     return <Login onLogin={handleLogin} />;
+  }
+
+  // Profile page is shared across all roles
+  if (currentPage === 'profile') {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Profile onNavigate={handleNavigate} onLogout={handleLogout} role={userRole} userData={userData} />
+      </div>
+    );
+  }
+
+  // Settings page is shared across all roles
+  if (currentPage === 'settings') {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Settings onNavigate={handleNavigate} onLogout={handleLogout} role={userRole} userData={userData} />
+      </div>
+    );
   }
 
   return (

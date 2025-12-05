@@ -1,11 +1,83 @@
 [
   {
-    "id": "bc70507d-9a34-46a8-850f-20d7debd563a",
+    "id": "admin-001",
+    "email": "admin@example.com",
+    "password": "$2a$10$QZaCScjmN1KW8NgLbLE6cuOzH9L4dpf8x/SHcx.7sjSTp78I9Khcu",
+    "name": "System Admin",
+    "role": "admin",
+    "createdAt": "2025-12-05T06:30:48.315Z",
+    "updatedAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "instructor-001",
+    "email": "instructor1@example.com",
+    "password": "$2a$10$OmQszSvkdKnwDVjJYrV3f.J61A0Gfqg06voMeRYHEKyL4L1WkvJpG",
+    "name": "John Smith",
+    "role": "instructor",
+    "createdAt": "2025-12-05T06:30:48.315Z",
+    "updatedAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "instructor-002",
+    "email": "instructor2@example.com",
+    "password": "$2a$10$OmQszSvkdKnwDVjJYrV3f.J61A0Gfqg06voMeRYHEKyL4L1WkvJpG",
+    "name": "Jane Doe",
+    "role": "instructor",
+    "createdAt": "2025-12-05T06:30:48.315Z",
+    "updatedAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "student-001",
+    "email": "student1@example.com",
+    "password": "$2a$10$OmQszSvkdKnwDVjJYrV3f.J61A0Gfqg06voMeRYHEKyL4L1WkvJpG",
+    "name": "Alice Johnson",
+    "role": "student",
+    "createdAt": "2025-12-05T06:30:48.315Z",
+    "updatedAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "student-002",
+    "email": "student2@example.com",
+    "password": "$2a$10$OmQszSvkdKnwDVjJYrV3f.J61A0Gfqg06voMeRYHEKyL4L1WkvJpG",
+    "name": "Bob Williams",
+    "role": "student",
+    "createdAt": "2025-12-05T06:30:48.315Z",
+    "updatedAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "student-003",
+    "email": "student3@example.com",
+    "password": "$2a$10$OmQszSvkdKnwDVjJYrV3f.J61A0Gfqg06voMeRYHEKyL4L1WkvJpG",
+    "name": "Charlie Brown",
+    "role": "student",
+    "createdAt": "2025-12-05T06:30:48.315Z",
+    "updatedAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "student-004",
+    "email": "student4@example.com",
+    "password": "$2a$10$OmQszSvkdKnwDVjJYrV3f.J61A0Gfqg06voMeRYHEKyL4L1WkvJpG",
+    "name": "Diana Prince",
+    "role": "student",
+    "createdAt": "2025-12-05T06:30:48.315Z",
+    "updatedAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "student-005",
+    "email": "student5@example.com",
+    "password": "$2a$10$OmQszSvkdKnwDVjJYrV3f.J61A0Gfqg06voMeRYHEKyL4L1WkvJpG",
+    "name": "Edward Miller",
+    "role": "student",
+    "createdAt": "2025-12-05T06:30:48.315Z",
+    "updatedAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "d2ec1043-9267-4635-8b94-29083b7e5bac",
     "email": "test@example.com",
-    "password": "$2a$10$f.MIGRSN5kq5XOiS1TEzM.ATDiUuKd7MjOyTQsOPSkENQ7o7t3OEa",
+    "password": "$2a$10$l9jEXxubE/xBpzq6rga7hOb64uBoKJt6VZ7HAKnESHNZNXGH59rvq",
     "name": "Updated User",
     "role": "user",
-    "createdAt": "2025-12-03T14:57:30.925Z",
-    "updatedAt": "2025-12-03T14:57:30.998Z"
+    "createdAt": "2025-12-05T06:43:53.711Z",
+    "updatedAt": "2025-12-05T06:43:53.780Z"
   }
 ]

@@ -1,11 +1,56 @@
 [
   {
-    "id": "session_1764773851024",
-    "batchId": "dd10c48e-3aa5-4de0-90cd-a23df7361c34",
+    "id": "session-001",
+    "batchId": "batch-001",
+    "instructorId": "instructor-001",
+    "sessionDate": "2025-01-15T09:00:00.000Z",
+    "sessionLabel": "Morning",
+    "duration": 60,
+    "createdAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "session-002",
+    "batchId": "batch-001",
+    "instructorId": "instructor-001",
+    "sessionDate": "2025-01-16T09:00:00.000Z",
+    "sessionLabel": "Morning",
+    "duration": 60,
+    "createdAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "session-003",
+    "batchId": "batch-001",
+    "instructorId": "instructor-001",
+    "sessionDate": "2025-01-17T09:00:00.000Z",
+    "sessionLabel": "Morning",
+    "duration": 60,
+    "createdAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "session-004",
+    "batchId": "batch-002",
+    "instructorId": "instructor-001",
+    "sessionDate": "2025-01-15T14:00:00.000Z",
+    "sessionLabel": "Afternoon",
+    "duration": 60,
+    "createdAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "session-005",
+    "batchId": "batch-003",
+    "instructorId": "instructor-002",
+    "sessionDate": "2025-02-08T10:00:00.000Z",
+    "sessionLabel": "Weekend",
+    "duration": 120,
+    "createdAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "session_1764917033809",
+    "batchId": "2af645db-bbd6-4f3e-9b35-9eff5f697f5f",
     "instructorId": "instructor-1",
-    "sessionDate": "2025-12-03T14:57:31.023Z",
+    "sessionDate": "2025-12-05T06:43:53.806Z",
     "sessionLabel": "morning",
     "duration": 60,
-    "createdAt": "2025-12-03T14:57:31.024Z"
+    "createdAt": "2025-12-05T06:43:53.809Z"
   }
 ]

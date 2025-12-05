@@ -86,7 +86,7 @@ function authRouter(prisma) {
         const errors = validationResult(req);
         if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
 
-        let { email, password } = req.body;
+        let { email, password, role: selectedRole } = req.body;
         email = String(email).toLowerCase().trim();
 
         const user = await db.user.findUnique({ where: { email } });
@@ -95,6 +95,13 @@ function authRouter(prisma) {
 
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) return res.status(401).json({ error: 'Invalid credentials' });
+
+        // Validate that selected role matches user's actual role
+        if (selectedRole && selectedRole !== user.role) {
+          return res.status(401).json({
+            error: `This account is registered as ${user.role}. Please select the correct role.`
+          });
+        }
 
         const token = signToken(user);
 

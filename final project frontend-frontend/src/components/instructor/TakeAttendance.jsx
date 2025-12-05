@@ -48,10 +48,10 @@ export function TakeAttendance({ onNavigate, onLogout }) {
   return (
     <div className="flex">
       <Sidebar role="instructor" currentPage="attendance" onNavigate={onNavigate} />
-      
+
       <div className="flex-1 flex flex-col min-h-screen">
-        <Navbar onLogout={onLogout} userName="Dr. Emily Smith" />
-        
+        <Navbar onLogout={onLogout} onNavigate={onNavigate} userName="Dr. Emily Smith" />
+
         <div className="flex-1 p-8">
           <div className="mb-8">
             <h1 className="text-gray-900 text-3xl mb-2">Take Attendance</h1>
@@ -162,31 +162,28 @@ export function TakeAttendance({ onNavigate, onLogout }) {
                       <div className="flex gap-2">
                         <button
                           onClick={() => handleStatusChange(student.id, 'present')}
-                          className={`px-3 py-1 rounded-lg text-sm font-medium transition ${
-                            student.status === 'present'
-                              ? 'bg-green-600 text-white'
-                              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                          }`}
+                          className={`px-3 py-1 rounded-lg text-sm font-medium transition ${student.status === 'present'
+                            ? 'bg-green-600 text-white'
+                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            }`}
                         >
                           Present
                         </button>
                         <button
                           onClick={() => handleStatusChange(student.id, 'absent')}
-                          className={`px-3 py-1 rounded-lg text-sm font-medium transition ${
-                            student.status === 'absent'
-                              ? 'bg-red-600 text-white'
-                              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                          }`}
+                          className={`px-3 py-1 rounded-lg text-sm font-medium transition ${student.status === 'absent'
+                            ? 'bg-red-600 text-white'
+                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            }`}
                         >
                           Absent
                         </button>
                         <button
                           onClick={() => handleStatusChange(student.id, 'late')}
-                          className={`px-3 py-1 rounded-lg text-sm font-medium transition ${
-                            student.status === 'late'
-                              ? 'bg-orange-600 text-white'
-                              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                          }`}
+                          className={`px-3 py-1 rounded-lg text-sm font-medium transition ${student.status === 'late'
+                            ? 'bg-orange-600 text-white'
+                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            }`}
                         >
                           Late
                         </button>
@@ -224,232 +221,6 @@ export function TakeAttendance({ onNavigate, onLogout }) {
               <Send className="w-5 h-5" />
               Submit Attendance
             </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-  const [selectedBatch, setSelectedBatch] = useState('CS101 - Batch A');
-  const [sessionDate, setSessionDate] = useState('2024-08-15');
-  const [sessionLabel, setSessionLabel] = useState('Lecture 1');
-  const [notes, setNotes] = useState('');
-  const [lastSaved, setLastSaved] = useState(null);
-
-  const [students, setStudents] = useState([
-    { id, name, roll, status,
-    { id, name, roll, status,
-    { id, name, roll, status,
-    { id, name, roll, status, reason,
-    { id, name, roll, status,
-    { id, name, roll, status,
-    { id, name, roll, status,
-    { id, name, roll, status,
-  ]);
-
-  const handleStatusChange = (studentId, status) => {
-    setStudents(students.map(s => s.id === studentId ? { ...s, status } : s));
-  };
-
-  const handleReasonChange = (studentId, reason) => {
-    setStudents(students.map(s => s.id === studentId ? { ...s, reason } : s));
-  };
-
-  const handleBulkAction = (status) => {
-    setStudents(students.map(s => ({ ...s, status })));
-  };
-
-  const handleSave = () => {
-    const now = new Date();
-    setLastSaved(now.toLocaleTimeString());
-  };
-
-  const handleSubmit = () => {
-    alert('Attendance submitted successfully');
-  };
-
-  const presentCount = students.filter(s => s.status === 'present').length;
-  const absentCount = students.filter(s => s.status === 'absent').length;
-  const lateCount = students.filter(s => s.status === 'late').length;
-
-  return (
-    <div className="flex">
-      <Sidebar role="instructor" currentPage="attendance" onNavigate={onNavigate} />
-      
-      <div className="flex-1 flex flex-col min-h-screen">
-        <Navbar onLogout={onLogout} userName="Dr. Emily Smith" />
-        
-        <div className="flex-1 p-8">
-          {/* Header */}
-          <div className="mb-8">
-            <h1 className="text-gray-900 mb-2">Take AttendanceMark student attendance for your session
-
-          {/* Session Header */}
-          <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 mb-6">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              {/* Batch Selection */}
-              
-                <label className="block text-gray-700 mb-2">Batch
-                  <select
-                    value={selectedBatch}
-                    onChange={(e) => setSelectedBatch(e.target.value)}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none appearance-none bg-white"
-                  >
-                    CS101 - Batch A
-                    CS101 - Batch B
-                    CS201 - Batch A
-                  <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
-                </div>
-              </div>
-
-              {/* Date Picker */}
-              
-                <label className="block text-gray-700 mb-2">Date
-                  <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <input
-                    type="date"
-                    value={sessionDate}
-                    onChange={(e) => setSessionDate(e.target.value)}
-                    className="w-full pl-11 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-                  />
-                </div>
-              </div>
-
-              {/* Session Label */}
-              
-                <label className="block text-gray-700 mb-2">Session
-                  <select
-                    value={sessionLabel}
-                    onChange={(e) => setSessionLabel(e.target.value)}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none appearance-none bg-white"
-                  >
-                    Lecture 1</option>
-                    Lecture 2</option>
-                    Lab Session
-                    Tutorial
-                  <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
-                </div>
-              </div>
-
-              {/* Auto-save Indicator */}
-              
-                <label className="block text-gray-700 mb-2">Status
-                  <CheckCircle2 className="w-5 h-5 text-green-600" />
-                  <span className="text-green-700">
-                    {lastSaved ? `Saved at ${lastSaved}` : 'Not saved'}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Notes */}
-            <div className="mt-4">
-              <label className="block text-gray-700 mb-2">Session Notes setNotes(e.target.value)}
-                placeholder="Add notes about this session..."
-                rows={2}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none resize-none"
-              />
-            </div>
-          </div>
-
-          {/* Bulk Actions */}
-          <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 mb-6">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <h3 className="text-gray-900">Bulk Actions handleBulkAction('present')}
-                  className="flex items-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-lg hover:bg-green-100 transition"
-                >
-                  <CheckCircle2 className="w-4 h-4" />
-                  Mark All Present handleBulkAction('absent')}
-                  className="flex items-center gap-2 px-4 py-2 bg-red-50 text-red-700 rounded-lg hover:bg-red-100 transition"
-                >
-                  <XCircle className="w-4 h-4" />
-                  Mark All Absent handleBulkAction('late')}
-                  className="flex items-center gap-2 px-4 py-2 bg-orange-50 text-orange-700 rounded-lg hover:bg-orange-100 transition"
-                >
-                  <Clock className="w-4 h-4" />
-                  Mark All Late
-              <div className="flex items-center gap-4 text-gray-600">
-                Present: {presentCount}</span>
-                Absent: {absentCount}</span>
-                Late: {lateCount}</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Student Attendance List */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden mb-6">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-gray-50 border-b border-gray-200">
-                  
-                    <th className="px-6 py-4 text-left text-gray-700">StudentRoll NumberStatusReason (if absent)</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {students.map((student) => (
-                    <tr key={student.id} className="hover:bg-gray-50 transition">
-                      <td className="px-6 py-4">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                            <span className="text-blue-600">{student.name.charAt(0)}</span>
-                          </div>
-                          <span className="text-gray-900">{student.name}</span>
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 text-gray-900">{student.roll}</td>
-                      <td className="px-6 py-4">
-                        <div className="flex gap-2">
-                          <button
-                            onClick={() => handleStatusChange(student.id, 'present')}
-                            className={`px-4 py-2 rounded-lg transition ${
-                              student.status === 'present'
-                                ? 'bg-green-600 text-white'
-                                : 'bg-gray-100 text-gray-700 hover, 'absent')}
-                            className={`px-4 py-2 rounded-lg transition ${
-                              student.status === 'absent'
-                                ? 'bg-red-600 text-white'
-                                : 'bg-gray-100 text-gray-700 hover, 'late')}
-                            className={`px-4 py-2 rounded-lg transition ${
-                              student.status === 'late'
-                                ? 'bg-orange-600 text-white'
-                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                            }`}
-                          >
-                            Late
-                      </td>
-                      <td className="px-6 py-4">
-                        {student.status === 'absent' && (
-                          <input
-                            type="text"
-                            value={student.reason || ''}
-                            onChange={(e) => handleReasonChange(student.id, e.target.value)}
-                            placeholder="Enter reason..."
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus)}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          {/* Sticky Bottom Bar */}
-          <div className="fixed bottom-0 left-64 right-0 bg-white border-t border-gray-200 px-8 py-4 shadow-lg">
-            <div className="flex items-center justify-between">
-              <div className="text-gray-600">
-                {lastSaved ? `Last saved at ${lastSaved}` : 'No changes saved'}
-              </div>
-              <div className="flex gap-3">
-                <button
-                  onClick={handleSave}
-                  className="flex items-center gap-2 px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition"
-                >
-                  <Save className="w-5 h-5" />
-                  Save Draft
-                  <Send className="w-5 h-5" />
-                  Submit Attendance
-            </div>
           </div>
         </div>
       </div>

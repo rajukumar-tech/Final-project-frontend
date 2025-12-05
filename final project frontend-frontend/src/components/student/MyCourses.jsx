@@ -64,10 +64,10 @@ export function MyCourses({ onNavigate, onLogout }) {
   return (
     <div className="flex">
       <Sidebar role="student" currentPage="courses" onNavigate={onNavigate} />
-      
+
       <div className="flex-1 flex flex-col min-h-screen">
-        <Navbar onLogout={onLogout} userName="Sarah Johnson" />
-        
+        <Navbar onLogout={onLogout} onNavigate={onNavigate} userName="Sarah Johnson" />
+
         <div className="flex-1 p-8">
           <h1 className="text-gray-900 text-3xl mb-2">My Courses</h1>
           <p className="text-gray-600 mb-8">View your enrolled courses and attendance details</p>
@@ -106,9 +106,8 @@ export function MyCourses({ onNavigate, onLogout }) {
                     </div>
                     <div className="bg-gray-200 rounded-full h-2">
                       <div
-                        className={`h-2 rounded-full ${
-                          course.attendance >= 85 ? 'bg-green-500' : course.attendance >= 75 ? 'bg-orange-500' : 'bg-red-500'
-                        }`}
+                        className={`h-2 rounded-full ${course.attendance >= 85 ? 'bg-green-500' : course.attendance >= 75 ? 'bg-orange-500' : 'bg-red-500'
+                          }`}
                         style={{ width: `${course.attendance}%` }}
                       ></div>
                     </div>

@@ -21,10 +21,10 @@ export function StudentDashboard({ onNavigate, onLogout }) {
   return (
     <div className="flex">
       <Sidebar role="student" currentPage="dashboard" onNavigate={onNavigate} />
-      
+
       <div className="flex-1 flex flex-col min-h-screen">
-        <Navbar onLogout={onLogout} userName="Sarah Johnson" />
-        
+        <Navbar onLogout={onLogout} onNavigate={onNavigate} userName="Sarah Johnson" />
+
         <div className="flex-1 p-8">
           <div className="mb-8">
             <h1 className="text-gray-900 text-3xl mb-2">Student Dashboard</h1>
@@ -130,11 +130,10 @@ export function StudentDashboard({ onNavigate, onLogout }) {
                       <p className="text-gray-900 font-semibold">{activity.course}</p>
                       <p className="text-gray-600 text-sm">{activity.date} • {activity.time}</p>
                     </div>
-                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                      activity.status === 'Present'
+                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${activity.status === 'Present'
                         ? 'bg-green-100 text-green-700'
                         : 'bg-red-100 text-red-700'
-                    }`}>
+                      }`}>
                       {activity.status}
                     </span>
                   </div>

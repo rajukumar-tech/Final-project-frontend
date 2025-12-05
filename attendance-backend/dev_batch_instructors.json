@@ -1,8 +1,32 @@
 [
   {
-    "id": "instructor_1764773851022",
-    "batchId": "dd10c48e-3aa5-4de0-90cd-a23df7361c34",
+    "id": "bi-001",
+    "batchId": "batch-001",
+    "instructorId": "instructor-001",
+    "createdAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "bi-002",
+    "batchId": "batch-002",
+    "instructorId": "instructor-001",
+    "createdAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "bi-003",
+    "batchId": "batch-003",
+    "instructorId": "instructor-002",
+    "createdAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "bi-004",
+    "batchId": "batch-004",
+    "instructorId": "instructor-002",
+    "createdAt": "2025-12-05T06:30:48.315Z"
+  },
+  {
+    "id": "instructor_1764917033805",
+    "batchId": "2af645db-bbd6-4f3e-9b35-9eff5f697f5f",
     "instructorId": "instructor-1",
-    "createdAt": "2025-12-03T14:57:31.022Z"
+    "createdAt": "2025-12-05T06:43:53.805Z"
   }
 ]

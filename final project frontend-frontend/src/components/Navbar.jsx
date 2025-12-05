@@ -1,15 +1,29 @@
-import { Search, Bell, User, LogOut, Moon } from 'lucide-react';
+import { Search, Bell, User, LogOut, Moon, Settings } from 'lucide-react';
 import { useState } from 'react';
 
-// //   userName, userName = 'User' }) {
+export function Navbar({ onLogout, onNavigate, userName = 'User' }) {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
 
   const notifications = [
-    { id, text, time, unread,
-    { id, text, time, unread,
-    { id, text, time, unread,
+    { id: 1, text: 'New attendance record submitted', time: '5 min ago', unread: true },
+    { id: 2, text: 'Batch A attendance is below threshold', time: '1 hour ago', unread: true },
+    { id: 3, text: 'Weekly report is ready', time: '2 hours ago', unread: false },
   ];
+
+  const handleProfileClick = () => {
+    setShowProfileMenu(false);
+    if (onNavigate) {
+      onNavigate('profile');
+    }
+  };
+
+  const handleSettingsClick = () => {
+    setShowProfileMenu(false);
+    if (onNavigate) {
+      onNavigate('settings');
+    }
+  };
 
   return (
     <div className="bg-white border-b border-gray-200 px-6 py-4 sticky top-0 z-40">
@@ -50,22 +64,25 @@ import { useState } from 'react';
             {showNotifications && (
               <div className="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg border border-gray-200 py-2">
                 <div className="px-4 py-2 border-b border-gray-200">
-                  <h3 className="text-gray-900">Notifications
+                  <h3 className="text-gray-900 font-semibold">Notifications</h3>
+                </div>
                 <div className="max-h-96 overflow-y-auto">
                   {notifications.map((notif) => (
                     <div
                       key={notif.id}
-                      className={`px-4 py-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 ${
-                        notif.unread ? 'bg-blue-50' : ''
-                      }`}
+                      className={`px-4 py-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 ${notif.unread ? 'bg-blue-50' : ''
+                        }`}
                     >
-                      <p className="text-gray-900">{notif.text}</p>
-                      <p className="text-gray-500 mt-1">{notif.time}</p>
+                      <p className="text-gray-900 text-sm">{notif.text}</p>
+                      <p className="text-gray-500 text-xs mt-1">{notif.time}</p>
                     </div>
                   ))}
                 </div>
                 <div className="px-4 py-2 border-t border-gray-200 text-center">
-                  <button className="text-blue-600 hover)}
+                  <button className="text-blue-600 hover:text-blue-700 text-sm">View all notifications</button>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Profile Menu */}
@@ -87,13 +104,31 @@ import { useState } from 'react';
             {showProfileMenu && (
               <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2">
                 <div className="px-4 py-3 border-b border-gray-200">
-                  <p className="text-gray-900">{userName}</p>
-                  <p className="text-gray-500">admin@university.edu
-                <button className="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 flex items-center gap-2">
+                  <p className="text-gray-900 font-medium">{userName}</p>
+                  <p className="text-gray-500 text-sm">Click to view profile</p>
+                </div>
+                <button
+                  onClick={handleProfileClick}
+                  className="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 flex items-center gap-2"
+                >
                   <User className="w-4 h-4" />
-                  Profile Settings
+                  <span>View Profile</span>
+                </button>
+                <button
+                  onClick={handleSettingsClick}
+                  className="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 flex items-center gap-2"
+                >
+                  <Settings className="w-4 h-4" />
+                  <span>Settings</span>
+                </button>
+                <button
+                  onClick={onLogout}
+                  className="w-full px-4 py-2 text-left text-red-600 hover:bg-gray-50 flex items-center gap-2"
+                >
                   <LogOut className="w-4 h-4" />
-                  Sign Out
+                  <span>Sign Out</span>
+                </button>
+              </div>
             )}
           </div>
         </div>
